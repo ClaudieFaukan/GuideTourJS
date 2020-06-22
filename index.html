@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/shepherd.js/dist/css/shepherd-theme-square.css"/>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    
+    <header>
+        <a href="#">MyLogo</a>
+        <nav>
+            <ul>
+                <li class="first"><a href="#">About us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <aside>
+        <h3>My title here</h3>
+        <ul>
+            <li><a class="second" href="#">Control Panel</a></li>
+            <li><a href="#">Control Panel</a></li>
+            <li><a href="#">Control Panel</a></li>
+            <li><a href="#">Control Panel</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <section>
+            <h1>Some important content here</h1>
+        </section>
+    </main>
+
+		<script src="https://cdn.jsdelivr.net/npm/shepherd.js@5.0.1/dist/js/shepherd.js"></script>
+
+  <script>
+    
+    const tour = new Shepherd.Tour({
+          defaultStepOptions: {
+          cancelIcon: {
+          enabled: true
+          },
+        classes: 'shepherd-theme-arrows',
+        scrollTo: { behavior: 'smooth', block: 'center' }
+      }
+    });
+
+    tour.addStep({
+      title: 'Un guide tout de l\'appli ?',
+      text: `C'est plutot cool, vous verez.. Plutôt le copain de Donald ? Non Plutot c'est le chien de Donald, le copain de Donald c'est Mickey`,
+      attachTo: {
+        element: '.first',
+        on: 'bottom'
+      },
+      buttons: [
+        {
+          action() {
+            return this.back();
+          },
+          classes: 'shepherd-button-secondary',
+          text: 'Back'
+        },
+        {
+          action() {
+            return this.next();
+          },
+          text: 'Next'
+        }
+      ],
+      id: 'creating'
+    });
+
+    tour.addStep({
+      title: 'Ici le side menu',
+      text: 'Un super menu qui n\'est pas à piquer des hannetons',
+      attachTo: {
+        element: '.second',
+        on: 'right'
+      },
+      buttons: [
+        {
+          action() {
+            return this.back();
+          },
+          classes: 'shepherd-button-secondary',
+          text: 'Back'
+        },
+        {
+          action() {
+            return this.next();
+          },
+          text: 'Next'
+        }
+      ],
+      id: 'creating2'
+    });
+
+    tour.addStep({
+      title: 'Du contenu exclusive',
+      text: 'Prenez un chewing-gum Emile',
+      attachTo: {
+        element: 'main',
+        on: 'bottom'
+      },
+      buttons: [
+        {
+          action() {
+            return this.back();
+          },
+          classes: 'shepherd-button-secondary',
+          text: 'Back'
+        },
+        {
+          action() {
+            return this.next();
+          },
+          text: 'Félécitation tu as fait le tour!'
+        }
+      ],
+      id: 'creating2'
+    });
+
+    tour.start();
+
+  </script>
+
+</body>
+</html>
